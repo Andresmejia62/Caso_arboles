@@ -35,12 +35,15 @@
             this.btContar = new System.Windows.Forms.Button();
             this.treeView1 = new System.Windows.Forms.TreeView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.tbBuscar = new System.Windows.Forms.TextBox();
+            this.btAgregarRaiz = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tbDatos
             // 
-            this.tbDatos.Location = new System.Drawing.Point(76, 38);
+            this.tbDatos.Location = new System.Drawing.Point(45, 48);
             this.tbDatos.Name = "tbDatos";
             this.tbDatos.Size = new System.Drawing.Size(264, 26);
             this.tbDatos.TabIndex = 0;
@@ -48,19 +51,19 @@
             // 
             // btInsertar
             // 
-            this.btInsertar.Location = new System.Drawing.Point(6, 25);
+            this.btInsertar.Location = new System.Drawing.Point(18, 30);
             this.btInsertar.Name = "btInsertar";
-            this.btInsertar.Size = new System.Drawing.Size(75, 66);
+            this.btInsertar.Size = new System.Drawing.Size(195, 50);
             this.btInsertar.TabIndex = 1;
-            this.btInsertar.Text = "Insertar";
+            this.btInsertar.Text = "Insertar nodo";
             this.btInsertar.UseVisualStyleBackColor = true;
             this.btInsertar.Click += new System.EventHandler(this.btInsertar_Click);
             // 
             // btBuscar
             // 
-            this.btBuscar.Location = new System.Drawing.Point(249, 27);
+            this.btBuscar.Location = new System.Drawing.Point(301, 283);
             this.btBuscar.Name = "btBuscar";
-            this.btBuscar.Size = new System.Drawing.Size(75, 66);
+            this.btBuscar.Size = new System.Drawing.Size(173, 41);
             this.btBuscar.TabIndex = 2;
             this.btBuscar.Text = "Buscar";
             this.btBuscar.UseVisualStyleBackColor = true;
@@ -68,9 +71,9 @@
             // 
             // btRecorrer
             // 
-            this.btRecorrer.Location = new System.Drawing.Point(87, 30);
+            this.btRecorrer.Location = new System.Drawing.Point(18, 263);
             this.btRecorrer.Name = "btRecorrer";
-            this.btRecorrer.Size = new System.Drawing.Size(75, 61);
+            this.btRecorrer.Size = new System.Drawing.Size(195, 61);
             this.btRecorrer.TabIndex = 3;
             this.btRecorrer.Text = "Recorrer";
             this.btRecorrer.UseVisualStyleBackColor = true;
@@ -78,9 +81,9 @@
             // 
             // btContar
             // 
-            this.btContar.Location = new System.Drawing.Point(168, 30);
+            this.btContar.Location = new System.Drawing.Point(18, 174);
             this.btContar.Name = "btContar";
-            this.btContar.Size = new System.Drawing.Size(75, 61);
+            this.btContar.Size = new System.Drawing.Size(195, 61);
             this.btContar.TabIndex = 4;
             this.btContar.Text = "Contar";
             this.btContar.UseVisualStyleBackColor = true;
@@ -88,7 +91,7 @@
             // 
             // treeView1
             // 
-            this.treeView1.Location = new System.Drawing.Point(20, 111);
+            this.treeView1.Location = new System.Drawing.Point(249, 30);
             this.treeView1.Name = "treeView1";
             this.treeView1.Size = new System.Drawing.Size(290, 205);
             this.treeView1.TabIndex = 5;
@@ -96,6 +99,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btAgregarRaiz);
+            this.groupBox1.Controls.Add(this.tbBuscar);
             this.groupBox1.Controls.Add(this.btInsertar);
             this.groupBox1.Controls.Add(this.treeView1);
             this.groupBox1.Controls.Add(this.btRecorrer);
@@ -103,21 +108,49 @@
             this.groupBox1.Controls.Add(this.btContar);
             this.groupBox1.Location = new System.Drawing.Point(39, 80);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(351, 344);
+            this.groupBox1.Size = new System.Drawing.Size(564, 376);
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Arbol";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(41, 25);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(108, 20);
+            this.label1.TabIndex = 7;
+            this.label1.Text = "Ingresar dato:";
+            // 
+            // tbBuscar
+            // 
+            this.tbBuscar.Location = new System.Drawing.Point(249, 251);
+            this.tbBuscar.Name = "tbBuscar";
+            this.tbBuscar.Size = new System.Drawing.Size(290, 26);
+            this.tbBuscar.TabIndex = 6;
+            // 
+            // btAgregarRaiz
+            // 
+            this.btAgregarRaiz.Location = new System.Drawing.Point(18, 95);
+            this.btAgregarRaiz.Name = "btAgregarRaiz";
+            this.btAgregarRaiz.Size = new System.Drawing.Size(195, 50);
+            this.btAgregarRaiz.TabIndex = 7;
+            this.btAgregarRaiz.Text = "Agregar raiz";
+            this.btAgregarRaiz.UseVisualStyleBackColor = true;
+            this.btAgregarRaiz.Click += new System.EventHandler(this.btAgregarRaiz_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(444, 450);
+            this.ClientSize = new System.Drawing.Size(669, 490);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.tbDatos);
             this.Name = "Form1";
             this.Text = "Form1";
             this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -132,6 +165,9 @@
         private System.Windows.Forms.Button btContar;
         private System.Windows.Forms.TreeView treeView1;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.TextBox tbBuscar;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btAgregarRaiz;
     }
 }
 

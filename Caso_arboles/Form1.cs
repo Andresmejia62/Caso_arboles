@@ -53,7 +53,7 @@ namespace Caso_arboles
         private void btBuscar_Click(object sender, EventArgs e)
         {
             // Buscar un nodo por su dato (recorrido en preorden)
-            string busqueda = tbDatos.Text.Trim();
+            string busqueda = tbBuscar.Text.Trim();
             if (string.IsNullOrEmpty(busqueda))
             {
                 MessageBox.Show("Ingrese un dato para buscar.");
@@ -141,6 +141,21 @@ namespace Caso_arboles
         private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
         {
 
+        }
+
+        private void btAgregarRaiz_Click(object sender, EventArgs e)
+        {
+            // Agregar una nueva raíz al TreeView usando el texto del TextBox tbDatos
+            string dato = tbDatos.Text.Trim();
+            if (string.IsNullOrEmpty(dato))
+            {
+                MessageBox.Show("Ingrese un dato válido.");
+                return;
+            }
+            TreeNode nuevaRaiz = new TreeNode(dato);
+            treeView1.Nodes.Add(nuevaRaiz);
+            treeView1.ExpandAll(); // Expandir para mostrar el nuevo nodo
+            tbDatos.Clear(); // Limpiar el TextBox después de agregar
         }
     }
 }
