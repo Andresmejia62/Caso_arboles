@@ -106,7 +106,7 @@
             this.groupBox1.Controls.Add(this.btRecorrer);
             this.groupBox1.Controls.Add(this.btBuscar);
             this.groupBox1.Controls.Add(this.btContar);
-            this.groupBox1.Location = new System.Drawing.Point(39, 80);
+            this.groupBox1.Location = new System.Drawing.Point(45, 91);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(564, 376);
             this.groupBox1.TabIndex = 6;

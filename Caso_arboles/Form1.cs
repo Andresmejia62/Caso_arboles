@@ -15,8 +15,7 @@ namespace Caso_arboles
         public Form1()
         {
             InitializeComponent();
-            // Inicializar el TreeView con un nodo raíz
-            treeView1.Nodes.Add(new TreeNode("jerarquía"));
+
         }
 
 
@@ -159,3 +158,4 @@ namespace Caso_arboles
         }
     }
 }
+    
