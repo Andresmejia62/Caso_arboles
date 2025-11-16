@@ -84,28 +84,72 @@ namespace Caso_arboles
 
         private void btRecorrer_Click(object sender, EventArgs e)
         {
-            // Recorrer el árbol en preorden y mostrar los datos en un MessageBox
+            // Recorrer el árbol según la selección del ComboBox cbRecorrido
+            string tipoRecorrido = cbRecorrido.SelectedItem?.ToString();
+            if (string.IsNullOrEmpty(tipoRecorrido))
+            {
+                MessageBox.Show("Seleccione un tipo de recorrido.");
+                return;
+            }
             List<string> recorrido = new List<string>();
-            Recorrer(treeView1.Nodes, recorrido);
+            switch (tipoRecorrido)
+            {
+                case "Preorden":
+                    RecorrerPreorden(treeView1.Nodes, recorrido);
+                    break;
+                case "Inorden":
+                    RecorrerInorden(treeView1.Nodes, recorrido);
+                    break;
+                case "Postorden":
+                    RecorrerPostorden(treeView1.Nodes, recorrido);
+                    break;
+                default:
+                    MessageBox.Show("Tipo de recorrido no válido.");
+                    return;
+            }
             if (recorrido.Count > 0)
             {
-                MessageBox.Show("Recorrido en preorden: " + string.Join(" -> ", recorrido));
+                MessageBox.Show($"Recorrido en {tipoRecorrido.ToLower()}: " + string.Join(" -> ", recorrido));
             }
             else
             {
                 MessageBox.Show("El árbol está vacío.");
             }
         }
-        private void Recorrer(TreeNodeCollection nodes, List<string> lista)
+        private void RecorrerPreorden(TreeNodeCollection nodes, List<string> lista)
         {
             // Método recursivo para recorrido en preorden
             foreach (TreeNode node in nodes)
             {
                 lista.Add(node.Text);
-                Recorrer(node.Nodes, lista);
+                RecorrerPreorden(node.Nodes, lista);
             }
         }
-
+        private void RecorrerInorden(TreeNodeCollection nodes, List<string> lista)
+        {
+            // Método recursivo para recorrido en inorden (adaptado para árbol general: primer hijo, raíz, resto de hijos)
+            foreach (TreeNode node in nodes)
+            {
+                if (node.Nodes.Count > 0)
+                {
+                    RecorrerInorden(node.Nodes[0].Nodes, lista); // Inorden del primer hijo (si existe)
+                }
+                lista.Add(node.Text);
+                for (int i = 1; i < node.Nodes.Count; i++)
+                {
+                    RecorrerInorden(node.Nodes[i].Nodes, lista); // Inorden del resto de hijos
+                }
+            }
+        }
+        private void RecorrerPostorden(TreeNodeCollection nodes, List<string> lista)
+        {
+            // Método recursivo para recorrido en postorden
+            foreach (TreeNode node in nodes)
+            {
+                RecorrerPostorden(node.Nodes, lista);
+                lista.Add(node.Text);
+            }
+        }
         private void btContar_Click(object sender, EventArgs e)
         {
             // Contar nodos totales y calcular el número máximo de niveles

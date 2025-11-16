@@ -38,6 +38,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.tbBuscar = new System.Windows.Forms.TextBox();
             this.btAgregarRaiz = new System.Windows.Forms.Button();
+            this.cbRecorrido = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -71,9 +72,9 @@
             // 
             // btRecorrer
             // 
-            this.btRecorrer.Location = new System.Drawing.Point(18, 263);
+            this.btRecorrer.Location = new System.Drawing.Point(34, 285);
             this.btRecorrer.Name = "btRecorrer";
-            this.btRecorrer.Size = new System.Drawing.Size(195, 61);
+            this.btRecorrer.Size = new System.Drawing.Size(159, 39);
             this.btRecorrer.TabIndex = 3;
             this.btRecorrer.Text = "Recorrer";
             this.btRecorrer.UseVisualStyleBackColor = true;
@@ -99,6 +100,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.cbRecorrido);
             this.groupBox1.Controls.Add(this.btAgregarRaiz);
             this.groupBox1.Controls.Add(this.tbBuscar);
             this.groupBox1.Controls.Add(this.btInsertar);
@@ -139,6 +141,18 @@
             this.btAgregarRaiz.UseVisualStyleBackColor = true;
             this.btAgregarRaiz.Click += new System.EventHandler(this.btAgregarRaiz_Click);
             // 
+            // cbRecorrido
+            // 
+            this.cbRecorrido.FormattingEnabled = true;
+            this.cbRecorrido.Items.AddRange(new object[] {
+            "Preorden",
+            "Inorden",
+            "Postorden"});
+            this.cbRecorrido.Location = new System.Drawing.Point(18, 251);
+            this.cbRecorrido.Name = "cbRecorrido";
+            this.cbRecorrido.Size = new System.Drawing.Size(195, 28);
+            this.cbRecorrido.TabIndex = 8;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -168,6 +182,7 @@
         private System.Windows.Forms.TextBox tbBuscar;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btAgregarRaiz;
+        private System.Windows.Forms.ComboBox cbRecorrido;
     }
 }
 
