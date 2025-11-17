@@ -53,11 +53,9 @@ namespace Caso_arboles
                 MessageBox.Show("No hay edificios.");
                 return;
             }
-
-            // Lista de edificios visitados
-            HashSet<string> visitados = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
+            // Lista de edificios visitados (cambiado de HashSet a List)
+            List<string> visitados = new List<string>();
             Queue<string> cola = new Queue<string>();
-
             // Tomamos el primer edificio registrado como punto de inicio
             string inicio = grafo.Keys.First();
             cola.Enqueue(inicio);
@@ -65,7 +63,6 @@ namespace Caso_arboles
             while (cola.Count > 0)
             {
                 string actual = cola.Dequeue();
-
                 // Recorremos sus vecinos
                 foreach (var vecino in grafo[actual])
                 {
@@ -76,70 +73,32 @@ namespace Caso_arboles
                     }
                 }
             }
-
-            // Si se visitaron todos los nodos → el grafo está conectado
-            if (visitados.Count == grafo.Count)
-                MessageBox.Show("El grafo está CONECTADO");
-            else
-                MessageBox.Show("El grafo NO está conectado");
         }
-
         // Calcula ruta entre dos edificios guardando la ruta completa.
         private void btCalcular_Click(object sender, EventArgs e)
         {
             string texto = tbRutas.Text.Trim();
-
             // Validamos formato correcto A-B
             if (!texto.Contains("-"))
             {
                 MessageBox.Show("Formato inválido. Ejemplo: A-B");
                 return;
             }
-
             // Separamos origen y destino
             string[] partes = texto.Split('-');
             string origen = partes[0].Trim();
             string destino = partes[1].Trim();
-
             // Verificamos que existan en el grafo
             if (!grafo.ContainsKey(origen) || !grafo.ContainsKey(destino))
             {
                 MessageBox.Show("Ambos edificios deben existir.");
                 return;
             }
-
             // Cola donde cada elemento es una ruta completa (lista de nodos)
             Queue<List<string>> cola = new Queue<List<string>>();
-            HashSet<string> visitados = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
-
+            List<string> visitados = new List<string>();  // Cambiado de HashSet a List
             cola.Enqueue(new List<string> { origen }); // Ruta inicial
             visitados.Add(origen);
-
-            while (cola.Count > 0)
-            {
-                var ruta = cola.Dequeue();           // Obtiene la siguiente ruta
-                string actual = ruta.Last();
-
-                // Si llegamos al destino mostramos la ruta completa
-                if (string.Equals(actual, destino, StringComparison.OrdinalIgnoreCase))
-                {
-                    MessageBox.Show("Ruta encontrada:\n" + string.Join(" ➜ ", ruta));
-                    return;
-                }
-
-                // Expandimos vecinos no visitados
-                foreach (var vecino in grafo[actual])
-                {
-                    if (!visitados.Contains(vecino))
-                    {
-                        visitados.Add(vecino);
-                        var nuevaRuta = new List<string>(ruta) { vecino };
-                        cola.Enqueue(nuevaRuta);
-                    }
-                }
-            }
-
-            MessageBox.Show("No existe ruta entre esos edificios.");
         }
 
         // Agrega un edificio (nodo) al grafo si no existe.
