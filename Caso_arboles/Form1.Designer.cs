@@ -35,10 +35,11 @@
             this.btContar = new System.Windows.Forms.Button();
             this.treeView1 = new System.Windows.Forms.TreeView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.tbBuscar = new System.Windows.Forms.TextBox();
-            this.btAgregarRaiz = new System.Windows.Forms.Button();
             this.cbRecorrido = new System.Windows.Forms.ComboBox();
+            this.btAgregarRaiz = new System.Windows.Forms.Button();
+            this.tbBuscar = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.btGrafo = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -115,32 +116,6 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Arbol";
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(41, 25);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(108, 20);
-            this.label1.TabIndex = 7;
-            this.label1.Text = "Ingresar dato:";
-            // 
-            // tbBuscar
-            // 
-            this.tbBuscar.Location = new System.Drawing.Point(249, 251);
-            this.tbBuscar.Name = "tbBuscar";
-            this.tbBuscar.Size = new System.Drawing.Size(290, 26);
-            this.tbBuscar.TabIndex = 6;
-            // 
-            // btAgregarRaiz
-            // 
-            this.btAgregarRaiz.Location = new System.Drawing.Point(18, 95);
-            this.btAgregarRaiz.Name = "btAgregarRaiz";
-            this.btAgregarRaiz.Size = new System.Drawing.Size(195, 50);
-            this.btAgregarRaiz.TabIndex = 7;
-            this.btAgregarRaiz.Text = "Agregar raiz";
-            this.btAgregarRaiz.UseVisualStyleBackColor = true;
-            this.btAgregarRaiz.Click += new System.EventHandler(this.btAgregarRaiz_Click);
-            // 
             // cbRecorrido
             // 
             this.cbRecorrido.FormattingEnabled = true;
@@ -153,16 +128,53 @@
             this.cbRecorrido.Size = new System.Drawing.Size(195, 28);
             this.cbRecorrido.TabIndex = 8;
             // 
+            // btAgregarRaiz
+            // 
+            this.btAgregarRaiz.Location = new System.Drawing.Point(18, 95);
+            this.btAgregarRaiz.Name = "btAgregarRaiz";
+            this.btAgregarRaiz.Size = new System.Drawing.Size(195, 50);
+            this.btAgregarRaiz.TabIndex = 7;
+            this.btAgregarRaiz.Text = "Agregar raiz";
+            this.btAgregarRaiz.UseVisualStyleBackColor = true;
+            this.btAgregarRaiz.Click += new System.EventHandler(this.btAgregarRaiz_Click);
+            // 
+            // tbBuscar
+            // 
+            this.tbBuscar.Location = new System.Drawing.Point(249, 251);
+            this.tbBuscar.Name = "tbBuscar";
+            this.tbBuscar.Size = new System.Drawing.Size(290, 26);
+            this.tbBuscar.TabIndex = 6;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(41, 25);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(108, 20);
+            this.label1.TabIndex = 7;
+            this.label1.Text = "Ingresar dato:";
+            // 
+            // btGrafo
+            // 
+            this.btGrafo.Location = new System.Drawing.Point(485, 38);
+            this.btGrafo.Name = "btGrafo";
+            this.btGrafo.Size = new System.Drawing.Size(99, 46);
+            this.btGrafo.TabIndex = 8;
+            this.btGrafo.Text = "Grafo";
+            this.btGrafo.UseVisualStyleBackColor = true;
+            this.btGrafo.Click += new System.EventHandler(this.btGrafo_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(669, 490);
+            this.Controls.Add(this.btGrafo);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.tbDatos);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Arbol";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
@@ -183,6 +195,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btAgregarRaiz;
         private System.Windows.Forms.ComboBox cbRecorrido;
+        private System.Windows.Forms.Button btGrafo;
     }
 }
 

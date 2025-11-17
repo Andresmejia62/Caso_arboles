@@ -17,13 +17,10 @@ namespace Caso_arboles
             InitializeComponent();
 
         }
-
-
         private void tbDatos_TextChanged(object sender, EventArgs e)
         {
 
         }
-
         private void btInsertar_Click(object sender, EventArgs e)
         {
             string dato = tbDatos.Text.Trim();
@@ -199,6 +196,12 @@ namespace Caso_arboles
             treeView1.Nodes.Add(nuevaRaiz);
             treeView1.ExpandAll(); // Expandir para mostrar el nuevo nodo
             tbDatos.Clear(); // Limpiar el TextBox después de agregar
+        }
+
+        private void btGrafo_Click(object sender, EventArgs e)
+        {
+            var grafo = new Grafo();
+            grafo.Show();
         }
     }
 }
